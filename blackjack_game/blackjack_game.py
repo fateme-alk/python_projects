@@ -5,16 +5,6 @@ class Participant:
         self.cards = []
         
     def get_card(self, cards):
-        
-        card = random.choice(cards)
-        self.cards.append(card)
-        cards.remove(card)
-
-class Participant:
-    def __init__(self):
-        self.cards = []
-        
-    def get_card(self, cards):
         card = random.choice(cards)
         self.cards.append(card)
         cards.remove(card)
@@ -28,7 +18,6 @@ class Player(Participant):
     def get_bet_amount(self):
         self.bet_amount = float(input('enter you\'r bet amount: '))
         
-    
     def __repr__(self):
         return f'{self.__class__.__name__}{self.number} has cards: {self.cards}'
     
