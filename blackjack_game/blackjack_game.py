@@ -45,11 +45,11 @@ class Participant:
 class Player(Participant):
     def __init__(self, number):
         self.number = number
-        self.bet_amount = None
+        self.bet_amount = self.get_bet_amount()
         super().__init__()
         
     def get_bet_amount(self):
-        self.bet_amount = float(input('enter you\'r bet amount: '))
+        self.bet_amount = float(input(f'{self.__class__.__name__}{self.number}, please enter you\' bet amount: '))
         
     def __repr__(self):
         return f'{self.__class__.__name__}{self.number} has cards: {self.cards}'
