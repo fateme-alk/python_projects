@@ -3,11 +3,44 @@ import random
 class Participant:
     def __init__(self):
         self.cards = []
+        self.hand_value = 0
         
     def get_card(self, cards):
         card = random.choice(cards)
         self.cards.append(card)
         cards.remove(card)
+
+    def calc_hand_value(self):
+        hand_value = 0
+        num_of_aces = 0
+        for card in self.cards:
+            if card.value == 'A':
+                num_of_aces = num_of_aces + 1
+            elif card.value in ['J', 'Q', 'K']:
+                hand_value = hand_value + 10
+            else:
+                hand_value = hand_value + card.value
+        if num_of_aces == 1:
+            if hand_value <= 10:
+                hand_value = hand_value + 11
+            else:
+                hand_value = hand_value + 1
+        elif num_of_aces == 2:
+            if hand_value <= 9:
+                hand_value = hand_value + (11 + 1)
+            else:
+                hand_value = hand_value + (num_of_aces * 1)
+        elif num_of_aces == 3:
+            if hand_value <= 8:
+                hand_value = hand_value + (11 + 1 + 1)
+            else:
+                hand_value = hand_value + (num_of_aces * 1)
+        elif num_of_aces == 4:
+            if hand_value <= 7:
+                hand_value = hand_value + (11 + 1 + 1 + 1)
+            else:
+                hand_value = hand_value + (num_of_aces * 1)
+        return hand_value
 
 class Player(Participant):
     def __init__(self, number):
