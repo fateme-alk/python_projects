@@ -26,4 +26,7 @@ for dir_path, dir_names, file_names in os.walk(src_folder_path):
         file_path = os.path.join(dir_path, file_name)
         file_year = str(modification_date(file_path).tm_year)
         create_dir(dst_folder_path, file_year)
-        
+        file_extension = find_file_extension(file_name)
+        for category, extensions_of_category in categories.items():
+            if file_extension in categories[category]:
+                create_dir(os.path.join(dst_folder_path, file_year),category)
