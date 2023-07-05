@@ -23,6 +23,10 @@ def copy_file(src_file_path, dst_file_path):
 categories = {
     'pic': ('jpg', 'jpeg', 'png'),
     'video': ('mp4', 'avi', '3gp', 'mpeg', 'mkv', 'wmv', 'mov'),
+    'compressed': ('zip', 'rar'),
+    'internet_related': ('html', 'css', 'js'),
+    'text': ('doc', 'docs', 'txt', 'pdf'),
+    'database': ('sqlite', 'sqlite3', 'db3', 'db', 'dbf', 'sql'),
 }   
 
 _, src_folder_path, dst_folder_path = tuple(sys.argv)
